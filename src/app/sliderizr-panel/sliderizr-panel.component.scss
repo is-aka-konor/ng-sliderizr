@@ -1,0 +1,51 @@
+$sz-header-height: 30px;
+
+:host {
+    display: block;
+    width: 600px;
+    height: 100%;
+    white-space: nowrap;
+    line-height: 0;
+    font-size: 0;
+    position: relative;
+
+    * {
+        line-height: initial;
+        font-size: initial;
+    }
+}
+
+.sz-panel__header {
+    background-color: #DDD;
+    height: $sz-header-height;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.sz-panel__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.sz-panel__container {
+    margin-top: $sz-header-height;
+    width: 600px;
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    height: calc(100% - #{$sz-header-height});
+    line-height: initial;
+    font-size: initial;
+    position: relative;
+    background-color: #EEE;
+    border-left: 1px solid #DDD;
+    overflow-y: scroll;
+}
+
+.sz-panel__child {
+    display: inline-block;
+    height: 100%;
+}
