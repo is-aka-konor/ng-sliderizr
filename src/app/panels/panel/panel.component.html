@@ -1,0 +1,23 @@
+<header class="sz-panel__header">
+    <h1>
+        <ng-template [szTemplateHost]="headingRef"></ng-template>
+        {{heading}}
+    </h1>
+    
+    <button class="sz-panel__close" (click)="close()" *ngIf="canClose">
+        <span *ngIf="!closeContentRef">{{closeText}}</span>
+        <ng-template [szTemplateHost]="closeContentRef"></ng-template>
+    </button>
+</header>
+
+<div class="sz-panel__container">
+    <ng-content></ng-content>
+</div>
+
+<div class="sz-panel__child">
+    <router-outlet (activate)='onChildActivate($event)'></router-outlet>
+</div>
+
+<div class="sz-panel__child">
+    <ng-template szChildPanelHost></ng-template>
+</div>

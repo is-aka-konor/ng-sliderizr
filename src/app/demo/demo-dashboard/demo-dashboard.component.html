@@ -1,4 +1,4 @@
-<tm-sliderizr-panel>
+<sz-panel #panel>
 	<ng-template szHeading>
 		I am z dashboard!
 	</ng-template>
@@ -10,5 +10,6 @@
 		<a [routerLink]="['demo-results']">Results</a>
 		<a [routerLink]="['demo-random']">Random panel</a>
 		<a [routerLink]="['/demo-results']">Results root</a>
+		<button type="button" (click)="openChild()">anon panel</button>
 	</div>
-</tm-sliderizr-panel>
+</sz-panel>

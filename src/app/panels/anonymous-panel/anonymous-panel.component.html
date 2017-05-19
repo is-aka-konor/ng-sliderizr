@@ -1,0 +1,15 @@
+<header class="sz-panel__header">
+    <span [szTemplateHost]="headingRef">{{heading}}</span>
+    <button class="sz-panel__close" (click)="close()" *ngIf="canClose">
+        <span *ngIf="!closeContentRef">{{closeText}}</span>
+        <ng-template [szTemplateHost]="closeContentRef"></ng-template>
+    </button>
+</header>
+
+<div class="sz-panel__container">
+    <ng-content></ng-content>
+</div>
+
+<div class="sz-panel__child">
+    <ng-template szChildPanelHost></ng-template>
+</div>

@@ -1,6 +1,6 @@
 $sz-header-height: 30px;
 
-:host {
+sz-panel {
     display: block;
     width: 600px;
     height: 100%;
@@ -8,15 +8,9 @@ $sz-header-height: 30px;
     line-height: 0;
     font-size: 0;
     position: relative;
-
-    * {
-        line-height: initial;
-        font-size: initial;
-    }
 }
 
 .sz-panel__header {
-    background-color: #DDD;
     height: $sz-header-height;
     position: absolute;
     top: 0;
@@ -40,7 +34,6 @@ $sz-header-height: 30px;
     line-height: initial;
     font-size: initial;
     position: relative;
-    background-color: #EEE;
     border-left: 1px solid #DDD;
     overflow-y: scroll;
 }

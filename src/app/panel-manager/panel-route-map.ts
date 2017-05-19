@@ -1,8 +1,7 @@
-import { SliderizrPanelComponent } from './../sliderizr-panel/sliderizr-panel.component';
+import { SzPanelComponent } from './../panels/panel/panel.component';
 import { ActivatedRoute } from '@angular/router';
 
 export class PanelRouteMap {
-    panel: SliderizrPanelComponent;
+    panel: SzPanelComponent;
     route: ActivatedRoute;
-    canDeactivate: any[];
 }

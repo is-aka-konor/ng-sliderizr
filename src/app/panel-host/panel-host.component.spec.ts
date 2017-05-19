@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SliderizrHostComponent } from './sliderizr-host.component';
+import { SzPanelHostComponent } from './panel-host.component';
 
 describe('SliderizrHostComponent', () => {
-  let component: SliderizrHostComponent;
-  let fixture: ComponentFixture<SliderizrHostComponent>;
+  let component: SzPanelHostComponent;
+  let fixture: ComponentFixture<SzPanelHostComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SliderizrHostComponent ]
+      declarations: [ SzPanelHostComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SliderizrHostComponent);
+    fixture = TestBed.createComponent(SzPanelHostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

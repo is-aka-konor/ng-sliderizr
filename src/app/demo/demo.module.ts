@@ -1,3 +1,5 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AnonPanelComponent } from './anon-panel/anon-panel.component';
 import { SliderizrModule } from './../sliderizr.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -12,21 +14,26 @@ import { DemoResultDetailsComponent } from './demo-results/demo-result-details/d
 import { DemoRandomPanelComponent } from './demo-random-panel/demo-random-panel.component';
 
 @NgModule({
-  declarations: [
-    DemoComponent,
-    DemoDashboardComponent,
-    DemoResultsComponent,
-    DemoResultDetailsComponent,
-    DemoRandomPanelComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    DemoRoutingModule,
-    SliderizrModule
-  ],
-  providers: [],
-  bootstrap: [DemoComponent]
+    declarations: [
+        DemoComponent,
+        DemoDashboardComponent,
+        DemoResultsComponent,
+        DemoResultDetailsComponent,
+        DemoRandomPanelComponent,
+        AnonPanelComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        DemoRoutingModule,
+        SliderizrModule,
+        BrowserAnimationsModule
+    ],
+    providers: [],
+    entryComponents: [
+        AnonPanelComponent
+    ],
+    bootstrap: [DemoComponent]
 })
 export class DemoModule { }
