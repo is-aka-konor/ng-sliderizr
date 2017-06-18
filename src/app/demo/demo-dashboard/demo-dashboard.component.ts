@@ -1,6 +1,5 @@
 import { SzPanelComponent } from './../../panels/panel/panel.component';
 import { AnonPanelComponent } from './../anon-panel/anon-panel.component';
-import { panelRouteAnimation } from './../../animations/panel-route.animation';
 import { Component, OnInit, HostBinding, ViewChild } from '@angular/core';
 
 @Component({
@@ -11,7 +10,6 @@ import { Component, OnInit, HostBinding, ViewChild } from '@angular/core';
 })
 export class DemoDashboardComponent implements OnInit {
     @ViewChild(SzPanelComponent) panel: SzPanelComponent;
-    //@HostBinding('@panelRouteAnimation') panelAnimation = true;
 
     constructor() { }
 

@@ -1,6 +1,6 @@
 $sz-header-height: 30px;
 
-sz-panel {
+.sz-panel {
     display: block;
     width: 600px;
     height: 100%;
@@ -8,6 +8,12 @@ sz-panel {
     line-height: 0;
     font-size: 0;
     position: relative;
+    z-index: 10;
+
+    &.active>.sz-panel__header,
+    &.active>.sz-panel__container{
+        background-color: red;
+    }
 }
 
 .sz-panel__header {
@@ -16,6 +22,11 @@ sz-panel {
     top: 0;
     left: 0;
     right: 0;
+    background-color: white;
+
+    h1 {
+        font-size: 26px;
+    }
 }
 
 .sz-panel__close {
@@ -36,6 +47,7 @@ sz-panel {
     position: relative;
     border-left: 1px solid #DDD;
     overflow-y: scroll;
+    background-color: white;
 }
 
 .sz-panel__child {

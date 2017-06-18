@@ -1,10 +1,12 @@
 <header class="sz-panel__header">
-    <h1>
+    <ng-template [szTemplateHost]="headerTemplate"></ng-template>
+
+    <h1 *ngIf="!headerTemplate && !!heading">
         <ng-template [szTemplateHost]="headingRef"></ng-template>
         {{heading}}
     </h1>
     
-    <button class="sz-panel__close" (click)="close()" *ngIf="canClose">
+    <button class="sz-panel__close" (click)="close()" *ngIf="!headerTemplate && canClose">
         <span *ngIf="!closeContentRef">{{closeText}}</span>
         <ng-template [szTemplateHost]="closeContentRef"></ng-template>
     </button>
@@ -15,7 +17,7 @@
 </div>
 
 <div class="sz-panel__child">
-    <router-outlet (activate)='onChildActivate($event)'></router-outlet>
+    <router-outlet (activate)='onChildActivate($event)' (deactivate)="onChildDeactivate($event)"></router-outlet>
 </div>
 
 <div class="sz-panel__child">

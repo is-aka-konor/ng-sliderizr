@@ -1,4 +1,4 @@
-import { SzAnonymousPanelComponent } from './../panels/anonymous-panel/anonymous-panel.component';
+import { SzAnonymousPanelComponent } from './../../panels/anonymous-panel/anonymous-panel.component';
 import { Observable } from 'rxjs/Observable';
 import { Injectable, ComponentRef } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
@@ -18,10 +18,8 @@ export class SzActivePanel<T> {
 
     public close(result?: any) {
         if (this.beforeClose) {
-             this.beforeClose().then(canClose => {
-                 if (canClose) {
-                    this.internalClose();
-                 };
+             this.beforeClose().then(() => {
+                this.internalClose();
              });
              return;
         }

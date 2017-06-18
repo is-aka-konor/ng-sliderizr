@@ -1,61 +1,57 @@
-import { AnonymousPanelService } from './../../anonymous-panel/anonymous-panel.service';
-import { SzActivePanel } from './../../anonymous-panel/active-panel';
+import { PANEL_ROUTE_ANIMATION, SzActivePanel, SzPanelService, ComponentType } from './../../core';
 import { BasePanel } from '../base-panel';
-import { ComponentType } from './../../generic-component-type';
-import { PanelManagerService } from './../../panel-manager/panel-manager.service';
 import { SzPanelHostComponent } from './../../panel-host/panel-host.component';
 import { ChildPanelHostDirective } from './../../child-panel-host/child-panel-host.directive';
-import { panelRouteAnimation } from './../../animations/panel-route.animation';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
-import { Component, OnInit, OnDestroy, HostBinding, Input, HostListener, forwardRef, Inject, TemplateRef, ElementRef, Injector, Optional, ViewChild, ViewEncapsulation } from '@angular/core';
+import { EventEmitter, AfterViewInit, Component, OnInit, OnDestroy, HostBinding, Input, HostListener, forwardRef, Inject, TemplateRef, ElementRef, Injector, Optional, ViewChild, ViewEncapsulation, Output } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { fromPromise } from 'rxjs/observable/fromPromise';
 import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { from } from 'rxjs/observable/from';
-import { of } from 'rxjs/observable/of';
-import { mergeMap } from 'rxjs/operator/mergeMap';
-import { $$observable as symbolObservable } from 'rxjs/symbol/observable';
-import { first } from 'rxjs/operator/first';
-import { every } from 'rxjs/operator/every';
-
-const CLOSED_STATE_NAME = 'closed';
+import { ISubscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'sz-panel',
     templateUrl: './panel.component.html',
     styleUrls: ['./panel.component.scss'],
-    animations: [panelRouteAnimation],
+    animations: [PANEL_ROUTE_ANIMATION],
     encapsulation: ViewEncapsulation.None
- })
+})
 export class SzPanelComponent extends BasePanel implements OnInit, OnDestroy {
+    private _activeAnon: SzActivePanel<any>;
+    private _subs: ISubscription[] = [];
     @ViewChild(ChildPanelHostDirective) childPanelHost: ChildPanelHostDirective;
     @ViewChild(RouterOutlet) private _childOutlet: RouterOutlet;
-    private _slideShutResolver: () => void;
-    private _activeAnon: SzActivePanel<any>;
+    @Output() afterChildClosed = new EventEmitter<any>();
+    @Output() afterChildOpened = new EventEmitter<any>();
+
+    public get childComponent(): Object {
+        return this._childOutlet.component;
+    }
 
     constructor(
         injector: Injector,
         element: ElementRef,
-        private route: ActivatedRoute,
+        private _route: ActivatedRoute,
+        private _router: Router,
         @Optional() parent: SzPanelHostComponent,
-        private _panelService: AnonymousPanelService,
-        @Inject(forwardRef(() => PanelManagerService)) private panelManager: PanelManagerService) {
-            super(parent, element, injector);
-        panelManager.registerPanel(this, route);
+        private _panelService: SzPanelService,
+    ) {
+        super(parent, element, injector);
     }
 
 
     ngOnInit() {
-        this._canClose = this.route.root !== this.route.parent;
-        this._parent.setActivePanel(this);
+        this._canClose = this._route.root !== this._route.parent;
+        this._parent.setActivePanel(this, true);
+
+        this._subs.push(this._route.params.subscribe(() => {
+            this._parent.setActivePanel(this, true);
+        }));
     }
 
     public openChild<T>(content: ComponentType<T>): SzActivePanel<T> {
-        // check that can close existing child
-
         if (this._childOutlet.isActivated) {
-            this._childOutlet.deactivate();
+            this.closeChildRoute();
         }
 
         this._activeAnon = this._panelService.open<T>(content, this, this._injector);
@@ -64,18 +60,30 @@ export class SzPanelComponent extends BasePanel implements OnInit, OnDestroy {
             this._activeAnon = null;
         });
 
+        this._parent.setActivePanel(this._activeAnon.componentInstance);
+
         return this._activeAnon;
     }
 
     close() {
-        this.panelManager.closePanel(this);
+        this._router.navigate(['./'], { relativeTo: this._route.parent });
+    }
+
+    closeChildRoute() {
+        this._router.navigate(['./'], { relativeTo: this._route });
     }
 
     ngOnDestroy() {
-        this.panelManager.unregisterPanel(this);
+        this._subs.forEach(s => s.unsubscribe());
     }
 
-    onChildActivate(args: any) {
+    onChildDeactivate(component: any) {
+        this.afterChildClosed.emit(component);
+    }
+
+    onChildActivate(component: any) {
+        console.log('activated');
+        this.afterChildOpened.emit(component);
         if (this._activeAnon) {
             this._activeAnon.close();
         }

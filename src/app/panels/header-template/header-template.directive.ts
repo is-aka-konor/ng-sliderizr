@@ -4,9 +4,9 @@ import { BasePanel } from '../base-panel';
 import { Directive, TemplateRef, Optional } from '@angular/core';
 
 @Directive({
-    selector: '[szHeading]'
+    selector: '[szHeaderTemplate]'
 })
-export class SzPanelHeadingDirective {
+export class SzHeaderTemplateDirective {
     public templateRef: TemplateRef<any>;
 
     public constructor(
@@ -14,6 +14,6 @@ export class SzPanelHeadingDirective {
         @Optional() panel: SzPanelComponent,
         @Optional() anonPanel: SzAnonymousPanelComponent
     ) {
-        (anonPanel || panel).headingRef = templateRef;
+        (anonPanel || panel).headerTemplate = templateRef;
     }
 }

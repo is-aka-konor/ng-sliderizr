@@ -2,7 +2,7 @@ import { trigger, state, style, transition, animate, AnimationTriggerMetadata } 
 
 const CLOSED_STATE_NAME = 'closed';
 
-export const panelRouteAnimation: AnimationTriggerMetadata = trigger('panelRouteAnimation',
+export const PANEL_ROUTE_ANIMATION: AnimationTriggerMetadata = trigger('panelRouteAnimation',
     [
         transition(':enter', [
             style({ transform: 'translateX(-100%)', zIndex: -1 }),

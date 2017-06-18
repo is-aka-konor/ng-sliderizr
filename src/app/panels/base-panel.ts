@@ -4,8 +4,11 @@ import { SzPanelHostComponent } from './../panel-host/panel-host.component';
 export abstract class BasePanel {
     public headingRef: TemplateRef<any>;
     public closeContentRef: TemplateRef<any>;
+    public headerTemplate: TemplateRef<any>;
     @HostBinding('@panelRouteAnimation') routeAnimation = true;
     @HostBinding('class.active') public isActive = false;
+    @HostBinding('class.sz-panel') private _panelClass = true;
+
     @Input() heading: string;
     @Input() closeText = 'close';
 
@@ -18,6 +21,7 @@ export abstract class BasePanel {
     protected get nativeElement(): HTMLElement {
         return this._element.nativeElement;
     }
+
     constructor(
         protected _parent: SzPanelHostComponent,
         protected _element: ElementRef,
@@ -30,9 +34,12 @@ export abstract class BasePanel {
 
     @HostListener('click', ['$event'])
     public onPanelClick(args: Event) {
-        args.stopPropagation();
-        this.scrollVisible();
         this._parent.setActivePanel(this);
+    }
+
+    @HostListener('@panelRouteAnimation.done', ['$event'])
+    onAnimationComplete() {
+        this.scrollVisible();
     }
 
     scrollVisible() {
@@ -42,28 +49,25 @@ export abstract class BasePanel {
 
     getOffsetLeft(): number {
         const box = this.nativeElement.getBoundingClientRect();
-        return box.left + this._parent.scrollLeft;
+        return (box.left - this._parent.boundingBox.left) + this._parent.scrollLeft;
     }
 
     getScrollAmount(): number {
         const scrollLeft = this._parent.scrollLeft;
         const parentWidth = this._parent.outerWidth;
         const panelWidth = this.nativeElement.offsetWidth;
-        //let prevSibling = element.prev();
 
         // Calculate offset left from previous sibling as the current element may be in the wrong position due to animations
-        let offsetLeft = this.getOffsetLeft(); // prevSibling.length === 0 ? 0 : (prevSibling.offset().left + prevSibling.outerWidth() - parent.offset().left) + scrollLeft;
-        let visibleRight = offsetLeft + panelWidth;
+        const offsetLeft = this.getOffsetLeft(); // The distance from the edge of the panel host to the start of the panel
+        const visibleRight = offsetLeft + panelWidth; // The right most edge of the panel relative to the parent panel
 
-        let scroll: number;
+        let scroll: number = scrollLeft;
 
         if (scrollLeft > offsetLeft) {
             scroll = offsetLeft;
         } else if (scrollLeft < (visibleRight - parentWidth)) {
-            // Add an extra 50px on the end so the panel isnt butted up against the side of the browser
+            // Add an extra 50px on the end so the panel isn't butted up against the side of the browser
             scroll = visibleRight - parentWidth + 50;
-        } else {
-            return;
         }
 
         return scroll;

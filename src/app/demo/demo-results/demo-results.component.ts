@@ -1,4 +1,3 @@
-import { panelRouteAnimation } from './../../animations/panel-route.animation';
 import { Component, OnInit, HostBinding } from '@angular/core';
 
 @Component({
@@ -10,7 +9,8 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 export class DemoResultsComponent implements OnInit {
   //@HostBinding('@panelRouteAnimation') panelAnimation = true;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

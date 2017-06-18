@@ -1,4 +1,3 @@
-import { panelRouteAnimation } from './../../animations/panel-route.animation';
 import { Component, OnInit, HostBinding } from '@angular/core';
 
 @Component({
