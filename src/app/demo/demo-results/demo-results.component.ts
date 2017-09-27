@@ -1,13 +1,14 @@
+import { PANEL_EXIT_ANIMATION } from '../../core/animations/panel-route.animation';
 import { Component, OnInit, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'tm-demo-results',
   templateUrl: './demo-results.component.html',
-  styleUrls: ['./demo-results.component.scss']
-  //animations: [panelRouteAnimation]
+  styleUrls: ['./demo-results.component.scss'],
+  animations: [PANEL_EXIT_ANIMATION]
 })
 export class DemoResultsComponent implements OnInit {
-  //@HostBinding('@panelRouteAnimation') panelAnimation = true;
+  @HostBinding('@panelExitAnimation') true;
 
   constructor() {
   }

@@ -9,7 +9,7 @@ export class SzActivePanel<T> {
     private _afterClosed: Subject<any> = new Subject();
     beforeClose: () => Promise<any>;
 
-    get componentInstance(): T {
+    public get componentInstance(): T {
         return this.componentRef ? this.componentRef.instance : null;
     }
 

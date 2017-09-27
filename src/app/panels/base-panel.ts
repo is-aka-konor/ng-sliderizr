@@ -22,7 +22,7 @@ export abstract class BasePanel {
         return this._element.nativeElement;
     }
 
-    constructor(
+    constructor (
         protected _parent: SzPanelHostComponent,
         protected _element: ElementRef,
         protected _injector: Injector
@@ -34,7 +34,18 @@ export abstract class BasePanel {
 
     @HostListener('click', ['$event'])
     public onPanelClick(args: Event) {
-        this._parent.setActivePanel(this);
+        if (this.isElementChild(<HTMLElement>args.target)) {
+            console.log('panel click');
+            this._parent.setActivePanel(this);
+        }
+    }
+
+    private isElementChild(target: HTMLElement): boolean {
+        while (target && target.tagName !== 'SZ-PANEL') {
+            target = target.parentElement;
+        }
+
+        return target && target === this._element.nativeElement;
     }
 
     @HostListener('@panelRouteAnimation.done', ['$event'])
