@@ -1,6 +1,6 @@
 import { SzPanelComponent } from './../../panels/panel/panel.component';
 import { ComponentType } from './../generic-component-type';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { SzActivePanel } from './active-panel';
 import {
     Injectable,

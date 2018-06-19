@@ -1,6 +1,5 @@
 import { SzAnonymousPanelComponent } from './../anonymous-panel/anonymous-panel.component';
 import { SzPanelComponent } from './../panel/panel.component';
-import { BasePanel } from '../base-panel';
 import { Directive, TemplateRef, Optional } from '@angular/core';
 
 @Directive({

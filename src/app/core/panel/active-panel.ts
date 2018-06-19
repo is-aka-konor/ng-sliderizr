@@ -1,7 +1,5 @@
-import { SzAnonymousPanelComponent } from './../../panels/anonymous-panel/anonymous-panel.component';
-import { Observable } from 'rxjs/Observable';
 import { Injectable, ComponentRef } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable()
 export class SzActivePanel<T> {

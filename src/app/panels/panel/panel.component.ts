@@ -19,12 +19,8 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
-import { fromPromise } from 'rxjs/observable/fromPromise';
-import { Observable } from 'rxjs/Observable';
-import { ISubscription } from 'rxjs/Subscription';
-import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/takeUntil';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'sz-panel',
@@ -62,8 +58,9 @@ export class SzPanelComponent extends BasePanel implements OnInit, OnDestroy {
     ngOnInit() {
         this._canClose = this._route.root !== this._route.parent;
 
-        this._route.params
-            .takeUntil(this._destroyed$)
+        this._route.params.pipe(
+                takeUntil(this._destroyed$)
+            )
             .subscribe(() => {
                 this._parent.setActivePanel(this, true);
             });
