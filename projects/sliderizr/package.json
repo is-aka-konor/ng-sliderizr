@@ -1,0 +1,20 @@
+{
+    "name": "@trademe/sliderizr",
+    "version": "0.3.0",
+    "description": "Sliderizr",
+    "author": "Kris Mackintosh <kris.mackintosh@trademe.co.nz>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Lightw3ight/ng-sliderizr.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Lightw3ight/ng-sliderizr/issues",
+        "email": "kris.mackintosh@trademe.co.nz"
+    },
+    "peerDependencies": {
+        "@angular/common": "^6.0.0",
+        "@angular/core": "^6.0.0",
+        "@angular/animations": "^6.0.0"
+    }
+}
