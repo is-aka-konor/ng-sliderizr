@@ -1,26 +1,25 @@
-import { PANEL_ROUTE_ANIMATION, SzActivePanel, SzPanelService, ComponentType } from './../../core';
 import { BasePanel } from '../base-panel';
 import { SzPanelHostComponent } from './../../panel-host/panel-host.component';
 import { ChildPanelHostDirective } from './../../child-panel-host/child-panel-host.directive';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import {
-    ChangeDetectionStrategy,
     Component,
     ElementRef,
     EventEmitter,
-    HostListener,
-    Inject,
     Injector,
-    Input,
     OnDestroy,
     OnInit,
     Optional,
     Output,
     ViewChild,
-    ViewEncapsulation,
+    ViewEncapsulation
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { PANEL_ROUTE_ANIMATION } from '../../core/animations/panel-route.animation';
+import { SzActivePanel } from '../../core/panel/active-panel';
+import { SzPanelService } from '../../core/panel/panel.service';
+import { ComponentType } from '../../core/generic-component-type';
 
 @Component({
     selector: 'sz-panel',
@@ -45,11 +44,11 @@ export class SzPanelComponent extends BasePanel implements OnInit, OnDestroy {
 
     constructor (
         @Optional() parent: SzPanelHostComponent,
+        private _panelService: SzPanelService,
         injector: Injector,
         element: ElementRef,
         private _route: ActivatedRoute,
-        private _router: Router,
-        private _panelService: SzPanelService
+        private _router: Router
     ) {
         super(parent, element, injector);
     }

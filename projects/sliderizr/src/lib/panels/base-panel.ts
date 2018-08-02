@@ -1,4 +1,4 @@
-import { ElementRef, Renderer, HostListener, TemplateRef, HostBinding, Input, Injector } from '@angular/core';
+import { ElementRef, HostListener, TemplateRef, HostBinding, Input, Injector } from '@angular/core';
 import { SzPanelHostComponent } from './../panel-host/panel-host.component';
 
 export abstract class BasePanel {
@@ -35,7 +35,6 @@ export abstract class BasePanel {
     @HostListener('click', ['$event'])
     public onPanelClick(args: Event) {
         if (this.isElementChild(<HTMLElement>args.target)) {
-            console.log('panel click');
             this._parent.setActivePanel(this);
         }
     }

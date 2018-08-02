@@ -1,7 +1,8 @@
 import { SzPanelHostComponent } from './../../panel-host/panel-host.component';
 import { Component, Injector, ElementRef, Optional, OnInit, ViewEncapsulation } from '@angular/core';
 import { BasePanel } from '../base-panel';
-import { PANEL_ROUTE_ANIMATION, SzActivePanel } from '../../core';
+import { PANEL_ROUTE_ANIMATION } from '../../core/animations/panel-route.animation';
+import { SzActivePanel } from '../../core/panel/active-panel';
 
 @Component({
     selector: 'sz-anonymous-panel',

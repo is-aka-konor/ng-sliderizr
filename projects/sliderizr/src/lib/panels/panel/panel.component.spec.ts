@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SliderizrPanelComponent } from './sliderizr-panel.component';
+import { SzPanelComponent } from './panel.component';
 
-describe('SliderizrPanelComponent', () => {
-  let component: SliderizrPanelComponent;
-  let fixture: ComponentFixture<SliderizrPanelComponent>;
+describe('SzPanelComponent', () => {
+  let component: SzPanelComponent;
+  let fixture: ComponentFixture<SzPanelComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SliderizrPanelComponent ]
+      declarations: [ SzPanelComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SliderizrPanelComponent);
+    fixture = TestBed.createComponent(SzPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,24 +1,19 @@
-import { SzPanelComponent } from './../../panels/panel/panel.component';
-import { ComponentType } from './../generic-component-type';
+import { SzPanelComponent } from '../../panels/panel/panel.component';
+import { ComponentType } from '../generic-component-type';
 import { Subject } from 'rxjs';
 import { SzActivePanel } from './active-panel';
 import {
     Injectable,
     ComponentFactoryResolver,
-    ElementRef,
     Injector,
-    TemplateRef,
-    ReflectiveInjector,
-    ApplicationRef,
-    ComponentRef
+    ReflectiveInjector
 } from '@angular/core';
 
 @Injectable()
 export class SzPanelService {
     constructor(
         private _componentFactoryResolver: ComponentFactoryResolver,
-        private _injector: Injector,
-        private _applicationRef: ApplicationRef
+        private _injector: Injector
     ) {
     }
 

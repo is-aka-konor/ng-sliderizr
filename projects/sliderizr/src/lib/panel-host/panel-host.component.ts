@@ -1,5 +1,5 @@
+import { ChangeDetectorRef, Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { WindowRefService } from '../core/window-ref/window-ref.service';
-import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewEncapsulation } from '@angular/core';
 import { BasePanel } from '../panels/base-panel';
 
 @Component({
@@ -9,11 +9,7 @@ import { BasePanel } from '../panels/base-panel';
     encapsulation: ViewEncapsulation.None
 })
 export class SzPanelHostComponent {
-    private _activePanelTimeoutId: number;
     private _scrollTimeoutId: number;
-    private _incomingPanel: BasePanel;
-    private _panelPriority: boolean;
-
     private _activePanel: BasePanel;
 
     constructor (

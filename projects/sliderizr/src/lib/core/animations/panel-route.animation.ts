@@ -1,22 +1,16 @@
 import {
     animate,
-    animateChild,
     AnimationTriggerMetadata,
     query,
-    state,
     style,
     transition,
-    trigger,
-    group,
+    trigger
 } from '@angular/animations';
-
-const CLOSED_STATE_NAME = 'closed';
 
 export const PANEL_ROUTE_ANIMATION: AnimationTriggerMetadata = trigger('panelRouteAnimation',
     [
         transition(':enter', [
             style({ transform: 'translateX(-100%)', zIndex: -1 }),
-            // query('@ panelRouteAnimation', animateChild(), { optional: true }),
             animate('200ms', style({ transform: 'translateX(0%)', zIndex: -1 }))
         ])
     ]);
