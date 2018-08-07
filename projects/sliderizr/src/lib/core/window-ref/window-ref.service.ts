@@ -9,6 +9,11 @@ export class WindowRefService {
     }
 
     public scrollTo(element: HTMLElement, to: number, duration: number) {
+        if (this._scrollTimeoutId) {
+            window.clearTimeout(this._scrollTimeoutId);
+            this._scrollTimeoutId = null;
+        }
+
         if (duration <= 0) {
             return;
         }

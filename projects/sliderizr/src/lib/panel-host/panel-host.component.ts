@@ -9,7 +9,6 @@ import { BasePanel } from '../panels/base-panel';
     encapsulation: ViewEncapsulation.None
 })
 export class SzPanelHostComponent {
-    private _scrollTimeoutId: number;
     private _activePanel: BasePanel;
 
     constructor (
@@ -35,10 +34,6 @@ export class SzPanelHostComponent {
     }
 
     public set scrollLeft(value: number) {
-        if (this._scrollTimeoutId) {
-            this._windowRef.nativeWindow.clearTimeout(this._scrollTimeoutId);
-        }
-
         this._windowRef.scrollTo(this.nativeElement, value, 200);
     }
 

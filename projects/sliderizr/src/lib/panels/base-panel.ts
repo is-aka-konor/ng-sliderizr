@@ -36,6 +36,7 @@ export abstract class BasePanel {
     public onPanelClick(args: Event) {
         if (this.isElementChild(<HTMLElement>args.target)) {
             this._parent.setActivePanel(this);
+            this.scrollVisible();
         }
     }
 
@@ -48,21 +49,24 @@ export abstract class BasePanel {
     }
 
     @HostListener('@panelRouteAnimation.done')
-    onAnimationComplete() {
-        this.scrollVisible();
+    public onAnimationComplete() {
+        // Set scroll in a timeout otherwise the DOM isnt ready and the scroll doesnt work
+        setTimeout(() => {
+            this.scrollVisible();
+        }, 0);
     }
 
-    scrollVisible() {
+    public scrollVisible() {
         this._parent.scrollLeft = this.getScrollAmount();
     }
 
 
-    getOffsetLeft(): number {
+    private getOffsetLeft(): number {
         const box = this.nativeElement.getBoundingClientRect();
         return (box.left - this._parent.boundingBox.left) + this._parent.scrollLeft;
     }
 
-    getScrollAmount(): number {
+    private getScrollAmount(): number {
         const scrollLeft = this._parent.scrollLeft;
         const parentWidth = this._parent.outerWidth;
         const panelWidth = this.nativeElement.offsetWidth;

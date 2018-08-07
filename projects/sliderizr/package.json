@@ -1,6 +1,6 @@
 {
     "name": "@trademe/sliderizr",
-    "version": "0.3.4",
+    "version": "1.0.0",
     "description": "Sliderizr",
     "author": "Kris Mackintosh <kris.mackintosh@trademe.co.nz>",
     "license": "MIT",
@@ -13,8 +13,8 @@
         "email": "kris.mackintosh@trademe.co.nz"
     },
     "peerDependencies": {
-        "@angular/common": "^6.0.0",
-        "@angular/core": "^6.0.0",
-        "@angular/animations": "^6.0.0"
+        "@angular/common": "^6.1.1",
+        "@angular/core": "^6.1.1",
+        "@angular/animations": "^6.1.1"
     }
 }
