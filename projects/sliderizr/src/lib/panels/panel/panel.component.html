@@ -5,7 +5,7 @@
         <ng-template [szTemplateHost]="headingRef"></ng-template>
         {{heading}}
     </h1>
-    
+
     <button class="sz-panel__close" (click)="close()" *ngIf="!headerTemplate && canClose">
         <span *ngIf="!closeContentRef">{{closeText}}</span>
         <ng-template [szTemplateHost]="closeContentRef"></ng-template>

@@ -1,0 +1,12 @@
+sz-panel-host {
+    top: 65px;
+}
+
+:host {
+    --sz-panel-header__height: 50px;
+    --sz-panel-header__fill: #f2f2f2;
+    --sz-panel-header__fill--active: #f7f7f7;
+
+    --sz-panel-content__fill: #f7f7f7;
+    --sz-panel-content__fill--active: #ffffff;
+}

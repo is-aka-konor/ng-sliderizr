@@ -1,10 +1,15 @@
-<sz-panel heading="results">
+<sz-panel heading="Search results">
     <p>
-        demo-results works!
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur.
     </p>
-    <div>
-        <a [routerLink]="['/demo-dashboard']">Dashboard</a> |
-        <a [routerLink]="['demo-result-details', 1]">Details 1</a> |
-        <a [routerLink]="['demo-result-details', 2]">Details 2</a>
-    </div>
+
+    <mat-nav-list>
+        <a mat-list-item [routerLink]="['/demo-dashboard']">Dashboard</a>
+        <a mat-list-item [routerLink]="['demo-result-details', 1]">Search result 1</a>
+        <a mat-list-item [routerLink]="['demo-result-details', 2]">Search result 2</a>
+    </mat-nav-list>
 </sz-panel>
