@@ -1,5 +1,5 @@
 {
-    "name": "/sliderizr",
+    "name": "ng-sliderizr",
     "version": "1.0.0",
     "description": "Sliderizr",
     "author": "Kris Mackintosh <kris@spaceage.co.nz>",
@@ -13,8 +13,8 @@
         "email": "kris@spaceage.co.nz"
     },
     "peerDependencies": {
-        "@angular/common": "^6.1.1",
-        "@angular/core": "^6.1.1",
-        "@angular/animations": "^6.1.1"
+        "@angular/common": "^8.1.2",
+        "@angular/core": "^8.1.2",
+        "@angular/animations": "^8.1.2"
     }
 }
