@@ -12,20 +12,24 @@ $sz-header-height: 30px;
 
     &.active>.sz-panel__header,
     &.active>.sz-panel__container{
-        background-color: red;
+        --sz-panel-header__fill: var(--sz-panel-header__fill--active, #ff0000);
+        --sz-panel-content__fill: var(--sz-panel-content__fill--active, #ff0000);
     }
 }
 
 .sz-panel__header {
-    height: $sz-header-height;
+    height: var(--sz-panel-header__height, #{$sz-header-height});
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    background-color: white;
+    background-color: var(--sz-panel-header__fill, #ffffff);
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
 
     h1 {
-        font-size: 26px;
+        margin: 0;
     }
 }
 
@@ -36,18 +40,19 @@ $sz-header-height: 30px;
 }
 
 .sz-panel__container {
-    margin-top: $sz-header-height;
+    margin-top: var(--sz-panel-header__height, #{$sz-header-height});
     width: 600px;
     display: inline-block;
     vertical-align: top;
-    height: 100%;
-    height: calc(100% - #{$sz-header-height});
+    height: calc(100% - var(--sz-panel-header__height, #{$sz-header-height}));
     line-height: initial;
     font-size: initial;
     position: relative;
     border-left: 1px solid #DDD;
     overflow-y: scroll;
-    background-color: white;
+    background-color: var(--sz-panel-content__fill, #ffffff);
+    padding: 16px;
+    white-space: normal;
 }
 
 .sz-panel__child {

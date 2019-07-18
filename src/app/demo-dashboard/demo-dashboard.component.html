@@ -1,11 +1,15 @@
-<sz-panel #panel heading="I am z dashboard!">
-	<p>
-		demo-dashboard works!
-	</p>
-	<div>
-		<a [routerLink]="['demo-results']">Results</a>
-		<a [routerLink]="['demo-random']">Random panel</a>
-		<a [routerLink]="['/demo-results']">Results root</a>
-		<button type="button" (click)="openChild()">anon panel</button>
-	</div>
+<sz-panel heading="Dashboard">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur.
+    </p>
+
+    <mat-nav-list>
+        <a mat-list-item [routerLink]="['demo-results']">Results</a>
+        <a mat-list-item [routerLink]="['/demo-results']">Results (As root panel)</a>
+        <a mat-list-item [routerLink]="['demo-random']">Information</a>
+    </mat-nav-list>
 </sz-panel>

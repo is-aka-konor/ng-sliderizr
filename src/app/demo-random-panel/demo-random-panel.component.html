@@ -1,9 +1,19 @@
 <sz-panel>
-	<ng-template szHeaderTemplate>
-		<h2>I am a random panel</h2>
-	</ng-template>
-	<div>
-		<a [routerLink]="['demo-results']">Results</a>
-		<a [routerLink]="['/demo-results']">Results root</a>
-	</div>
+    <ng-template szHeaderTemplate>
+        <h1>Information</h1>
+    </ng-template>
+
+    <p>
+        At vero eos et accusamus et iusto odio dignissimos ducimus qui
+        blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+        et quas molestias excepturi sint occaecati cupiditate non provident,
+        similique sunt in culpa qui officia deserunt mollitia animi, id est
+        laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
+        distinctio.
+    </p>
+
+    <mat-nav-list>
+        <a mat-list-item [routerLink]="['demo-results']">Results</a>
+        <a mat-list-item [routerLink]="['/demo-results']">Results (As root panel)</a>
+    </mat-nav-list>
 </sz-panel>
