@@ -33,8 +33,8 @@ import { ComponentType } from '../../core/generic-component-type';
 export class SzPanelComponent extends BasePanel implements OnInit, OnDestroy {
     private _activeAnon: SzActivePanel<any>;
     private _destroyed$: Subject<any> = new Subject<any>();
-    @ViewChild(ChildPanelHostDirective) childPanelHost: ChildPanelHostDirective;
-    @ViewChild(RouterOutlet) private _childOutlet: RouterOutlet;
+    @ViewChild(ChildPanelHostDirective, { static: true }) childPanelHost: ChildPanelHostDirective;
+    @ViewChild(RouterOutlet, { static: true }) private _childOutlet: RouterOutlet;
     @Output() afterChildClosed = new EventEmitter<any>();
     @Output() afterChildOpened = new EventEmitter<any>();
 

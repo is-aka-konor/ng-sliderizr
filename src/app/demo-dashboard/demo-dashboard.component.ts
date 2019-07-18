@@ -10,7 +10,7 @@ import { SzPanelComponent } from 'projects/sliderizr/src/public_api';
     // animations: [panelRouteAnimation]
 })
 export class DemoDashboardComponent implements OnInit {
-    @ViewChild(SzPanelComponent) panel: SzPanelComponent;
+    @ViewChild(SzPanelComponent, { static: true }) panel: SzPanelComponent;
 
     constructor() { }
 
