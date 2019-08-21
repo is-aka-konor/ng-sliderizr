@@ -1,0 +1,33 @@
+{
+  "name": "ng-sliderizr",
+  "version": "2.0.3",
+  "description": "Sliderizr",
+  "author": "Kris Mackintosh <kris@spaceage.co.nz>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lightw3ight/ng-sliderizr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lightw3ight/ng-sliderizr/issues",
+    "email": "kris@spaceage.co.nz"
+  },
+  "peerDependencies": {
+    "@angular/common": "^8.1.2",
+    "@angular/core": "^8.1.2",
+    "@angular/animations": "^8.1.2"
+  },
+  "main": "bundles/ng-sliderizr.umd.js",
+  "module": "fesm5/ng-sliderizr.js",
+  "es2015": "fesm2015/ng-sliderizr.js",
+  "esm5": "esm5/ng-sliderizr.js",
+  "esm2015": "esm2015/ng-sliderizr.js",
+  "fesm5": "fesm5/ng-sliderizr.js",
+  "fesm2015": "fesm2015/ng-sliderizr.js",
+  "typings": "ng-sliderizr.d.ts",
+  "metadata": "ng-sliderizr.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

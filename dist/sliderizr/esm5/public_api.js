@@ -1,0 +1,15 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+ * Public API Surface of sliderizr
+ */
+export { SzPanelService } from './lib/core/panel/panel.service';
+export { SzActivePanel } from './lib/core/panel/active-panel';
+export { SzPanelComponent } from './lib/panels/panel/panel.component';
+export { SzAnonymousPanelComponent } from './lib/panels/anonymous-panel/anonymous-panel.component';
+export { SzPanelHeadingDirective } from './lib/panels/panel-heading/panel-heading.directive';
+export { SzPanelHostComponent } from './lib/panel-host/panel-host.component';
+export { SliderizrModule } from './lib/sliderizr.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL25nLXNsaWRlcml6ci8iLCJzb3VyY2VzIjpbInB1YmxpY19hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUdBLCtCQUFjLGdDQUFnQyxDQUFDO0FBQy9DLDhCQUFjLCtCQUErQixDQUFDO0FBQzlDLGlDQUFjLG9DQUFvQyxDQUFDO0FBQ25ELDBDQUFjLHdEQUF3RCxDQUFDO0FBQ3ZFLHdDQUFjLG9EQUFvRCxDQUFDO0FBQ25FLHFDQUFjLHVDQUF1QyxDQUFDO0FBQ3RELGdDQUFjLHdCQUF3QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcclxuICogUHVibGljIEFQSSBTdXJmYWNlIG9mIHNsaWRlcml6clxyXG4gKi9cclxuZXhwb3J0ICogZnJvbSAnLi9saWIvY29yZS9wYW5lbC9wYW5lbC5zZXJ2aWNlJztcclxuZXhwb3J0ICogZnJvbSAnLi9saWIvY29yZS9wYW5lbC9hY3RpdmUtcGFuZWwnO1xyXG5leHBvcnQgKiBmcm9tICcuL2xpYi9wYW5lbHMvcGFuZWwvcGFuZWwuY29tcG9uZW50JztcclxuZXhwb3J0ICogZnJvbSAnLi9saWIvcGFuZWxzL2Fub255bW91cy1wYW5lbC9hbm9ueW1vdXMtcGFuZWwuY29tcG9uZW50JztcclxuZXhwb3J0ICogZnJvbSAnLi9saWIvcGFuZWxzL3BhbmVsLWhlYWRpbmcvcGFuZWwtaGVhZGluZy5kaXJlY3RpdmUnO1xyXG5leHBvcnQgKiBmcm9tICcuL2xpYi9wYW5lbC1ob3N0L3BhbmVsLWhvc3QuY29tcG9uZW50JztcclxuZXhwb3J0ICogZnJvbSAnLi9saWIvc2xpZGVyaXpyLm1vZHVsZSc7XHJcbiJdfQ==
